@@ -13,6 +13,13 @@ sleep 1
 grep -o -P '(?<=localhost:25565 url=tcp://).*' ngrok.log > ngrokID
 echo "your minecraft ip is [[$(cat ngrokID)]] (wait a bit) "
 
+for i in {1..5}
+do
+   echo "your minecraft ip is [[$(cat ngrokID)]] (wait a bit) MEMORISE IT COPY THAT LOL "
+   sleep 2
+   echo "server ip: $(cat ngrokID)" > YOUR___SERVER_IP$i
+done
+
 curl -L -o meincraft.jar "https://papermc.io/api/v2/projects/paper/versions/1.17.1/builds/123/downloads/paper-1.17.1-123.jar"
 echo "eula=true" > eula.txt
 java -Xms2G -Xmx2G -jar meincraft.jar --nogui
